@@ -1,0 +1,6 @@
+宝塔登录地址及密码忘记
+执行命令查看完整地址
+/etc/init.d/bt default
+修改宝塔账号密码
+testpasswd 为要修改的密码
+cd /www/server/panel && python tools.py panel testpasswd

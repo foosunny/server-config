@@ -1,0 +1,53 @@
+宝塔故障解决及处理
+下载源码到本地
+导出SQL当无法连接进入数据库时使用--no-tablespaces 
+mysqldump --no-tablespaces -uvipbzcp_com -p vipbzcp_com>/vipbzcp_com.sql
+命令可导出宝塔SQL
+Xshell 命令中无法输入明文密码
+
+常规命令无法导出
+mysqldump  -uvipbzcp_com -pvipbzcp_com  vipbzcp_com>/home/vipbzcp_com.sql
+
+然后将宝塔卸载及环境卸载重装
+
+卸载宝塔
+wget http://download.bt.cn/install/bt-uninstall.sh
+
+安装宝塔
+宝塔安装6.0  需登录注册
+https://www.bt.cn/btcode.html
+
+yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_6.0.sh && sh install.sh
+
+使用/etc/init.d/iptables status 查看当前端口是否放行的状态
+
+linux命令端口放行
+添加8080端口的开放：iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
+
+查看防火墙是否开启：systemctl   status   firewalld
+
+这是Centos7默认没有开放这些端口，需要开放这些端口才能进入登录地址；
+
+firewall-cmd --zone=public --add-port=8888/tcp --permanent
+
+https://freessl.cn/apply?domains=vip.vipbzcp.com&product=trustasia01&from=
+
+SSL免费证书生成步骤
+
+证书生成软件Key-Manager
+password:qwert1234
+
+email:3475394936@qq.com
+password:3475394936qwert
+
+点击证书申请
+然后fileauth.txt验证
+选择TrustAisa证书
+RSA
+http  文件fileauth.txt验证、校验   将fileauth.txt放在网站根目录下的.well-known/acme-challenge
+例： http://vip.xxxxxx.com/.well-known/pki-validation/fileauth.txt 
+已完成校验
+申请证书当前页面显示订单完成 及为SSL证书申请成功
+将.key及.pem文件导入服务器即可
+
+

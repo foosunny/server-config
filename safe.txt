@@ -1,0 +1,9 @@
+php  新的禁用函数(php安全防范总结)（除了宝塔自带禁用的php函数）
+
+intval()
+eval()
+phpinfo()
+ini_set()
+gzinflate()  压缩 PHPExcel表导入导出中会使用
+error_reporting()  屏蔽php报错函数
+str_rot13()

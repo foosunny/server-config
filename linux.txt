@@ -1,0 +1,280 @@
+shutdown -r now  立刻重启系统
+/etc/init.d/nginx restart  重启nginx服务器
+/etc/init.d/bt default  查看宝塔登录地址、密码
+
+bt重置密码命令
+cd /www/server/panel && python tools.pyc panel qwert1234 9zdst9ku 
+
+宝塔登录地址及密码忘记
+执行命令查看完整地址
+/etc/init.d/bt default
+修改宝塔账号密码
+testpasswd 为要修改的密码
+cd /www/server/panel && python tools.py panel testpasswd
+
+
+
+linux  常用命令
+pwd  查看当前目录所在路径
+
+php  新的禁用函数(php安全防范总结)（除了宝塔自带禁用的php函数）
+
+intval()
+eval()
+phpinfo()
+ini_set()
+gzinflate()  压缩 PHPExcel表导入导出中会使用
+error_reporting()  屏蔽php报错函数
+str_rot13()
+
+==================================================
+users: rootadmin
+admin
+password: root123456
+
+cmd 命令
+
+net localgroup administrators 用户名 /add  ，即可给当前“用户名”提升为“管理员权限”。
+1、直接在CMD窗口中提升权限。
+
+打开“运行”对话框（按Windows+R快捷打开），输入“CMD”进入MSDOS界面。
+
+
+2、从打开的“命令提示符”窗口中，输入命令“net localgroup administrators 用户名 /add”并按回车，即可给当前“用户名”提升为“管理员权限”。
+
+
+3、接下来再输入“net user”并按回车，即可获得当前系统中所有用户及权限信息，如图所示，表明当前用户已是管理员权限。
+
+
+以上就是Windows10无法打开CMD窗口提示请求的操作需要提升权限的四种解决方法介绍了。如果你的win10系统也打不开cmd窗口的话，那么不妨参照上述进行解决哦！
+
+
+
+2种方法:
+1:开始→所有程序→附件→命令提示符→右键选择以管理员运行(或者执行身份)→OK
+
+2:在win+R(也就是运行)中输入: runas /user:administrator Cmd 然后回车，会提示你输入密码，输入后即可以管理员身份启动CMD
+Ps:也可以直接打开CMD输入 runas /user:administrator Cmd 然后回车
+
+此法有2个前提:
+1.administrator需要设置密码
+2.secondLogon...服务需开启
+
+
+
+==================================================
+
+PHP 开源库   PHP 机器学习库 PHP-ML 
+
+PHP-ml 是 PHP 的机器学习库。同时包含算法，交叉验证，神经网络，预处理，特征提取等。
+https://blog.csdn.net/jacksun_huang/article/details/84101020
+
+
+C++学习
+https://www.runoob.com/cplusplus/cpp-variable-scope.html
+
+
+
+spell checker  语法检测工具
+
+站点安全检测工具
+
+安全攻防  安全漏洞检测工具
+Rapid7、Awvs,Nmap,Nessus,Openvas,Metasploit等。
+
+Burpsuite,splmap,Python 漏洞检测
+
+
+=============================================
+centos 放行端口命令firewall-cmd --zone=public --add-port=80/tcp --permanent
+
+查询端口8888是否开启命令firewall-cmd --query-port=8888/tcp
+
+
+linux   虚拟机查看ip 命令ip addr
+
+
+
+CentOS7防火墙放行端口
+2017年09月25日 16:57:47 孙艳强 阅读数：3828
+原文:http://blog.csdn.net/achang21/article/details/52538049
+使用方法如下：
+>>> 关闭防火墙
+systemctl stop firewalld.service             #停止firewall
+systemctl disable firewalld.service        #禁止firewall开机启动
+>>> 开启端口
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+ 命令含义：
+--zone #作用域
+--add-port=80/tcp #添加端口，格式为：端口/通讯协议
+--permanent #永久生效，没有此参数重启后失效
+>>> 重启防火墙
+firewall-cmd --reload
+常用命令介绍
+firewall-cmd --state                           ##查看防火墙状态，是否是running
+firewall-cmd --reload                          ##重新载入配置，比如添加规则之后，需要执行此命令
+firewall-cmd --get-zones                       ##列出支持的zone
+firewall-cmd --get-services                    ##列出支持的服务，在列表中的服务是放行的
+firewall-cmd --query-service ftp               ##查看ftp服务是否支持，返回yes或者no
+firewall-cmd --add-service=ftp                 ##临时开放ftp服务
+firewall-cmd --add-service=ftp --permanent     ##永久开放ftp服务
+firewall-cmd --remove-service=ftp --permanent  ##永久移除ftp服务
+firewall-cmd --add-port=80/tcp --permanent     ##永久添加80端口 
+iptables -L -n                                 ##查看规则，这个命令是和iptables的相同的
+man firewall-cmd                               ##查看帮助
+
+
+
+centos7使用命令重启或关机
+2018年09月03日 19:51:18 小恶魔O 阅读数：7371
+安装GNOME的朋友们首先切换到字符界面：
+
+先登陆进入系统，进入图形化界面：
+
+
+
+
+
+然后按Ctrl+Alt+F6(笔记本的是Ctrl+Alt+shift+Fn)，进入字符界面
+
+（最小化安装的直接输入即可）
+
+关机命令：shutdown或poweroff
+
+shutdown:shutdown -h now  #立即关机（shutdown -h 10   #10分钟后关机）
+
+
+
+poweroff：直接输入poweroff即可：
+
+
+
+重启命令：shutdown或reboot
+
+shutdown:shutdown -r now  #立即重新启动  （shutdown -r +10  #10分钟之后重启）
+
+reboot：直接输入即可。
+更多命令，使用  firewall-cmd --help 查看帮助文件
+>>>  CentOS 7.0默认使用的是firewall作为防火墙，使用iptables必须重新设置一下
+1、直接关闭防火墙
+systemctl stop firewalld.service           #停止firewall
+systemctl disable firewalld.service     #禁止firewall开机启动
+2、设置 iptables service
+yum -y install iptables-services
+如果要修改防火墙配置，如增加防火墙端口3306
+vi /etc/sysconfig/iptables 
+增加规则
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT
+
+保存退出后
+systemctl restart iptables.service #重启防火墙使配置生效
+systemctl enable iptables.service #设置防火墙开机启动
+
+=======================================
+博牛
+https://www.boniu123.cc/
+
+https://www.boniu123.cc/
+
+http://blog.haohtml.com/archives/13065
+php  木马查找
+
+https://blog.csdn.net/robin_sky/article/details/90118162
+
+
+php   windows 环境php5.6 redis  安装
+https://blog.csdn.net/robin_sky/article/details/90118162
+
+laravel5.5  文件上传
+https://blog.csdn.net/weixin_30502965/article/details/94960929
+
+
+
+linux  文件上传下载命令
+https://blog.csdn.net/weixin_36910300/article/details/78375882
+
+CDN  分布
+http://new.cnzz.com/v1/login.php?siteid=1278061476
+
+
+#服务器管理笔记
+服务器安全管理软件
+
+护卫神 主机大师
+
+安全狗(枸杞版V.4.2) 不需要注册登录免费使用
+
+护卫神  PHP 套件 免费版
+
+nginx 站点部署 nginx.conf配置站点部署配置
+
+Apache站点部署vhost-conf配置文件
+
+<VirtualHost *:80>
+    DocumentRoot "D:\project\example\youhui"
+   ServerName youhui.com
+   ServerAlias 
+  <Directory "D:\project\example\youhui">
+     Options Indexes FollowSymLinks ExecCGI
+     AllowOverride All
+    Order allow,deny
+    Allow from all
+    Require all granted
+  </Directory>
+</VirtualHost>
+
+修改win10 系统下的hosts文件 
+位置：C:\Windows\System32\drivers\etc
+
+
+
+
+
+
+
+
+=========================================================
+搜狗统计：9sg.lydgamea.com.cn
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?88e74659015dc381b493b6892af397b2";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+百度统计：ac.fjujhf.cn
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f80ad63a53d1acd5ebe4567faf5abdf8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+360统计：wf.jifagfpag.top
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?28ef726a67af51d55fa1c9637fddc5cc";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+搜狗一凡：Hbn.1fanol.cn
+<script type="text/javascript" src="https://s4.cnzz.com/z_stat.php?id=1278061476&web_id=1278061476"></script>
+
+
+
+
+
+ 
+

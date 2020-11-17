@@ -1,0 +1,63 @@
+// 构造SQL语句发送到MYSQL服务器去执行
+$sql="update guestbook set name='{$name}',inputtime='{$inputtime}',content='{$content}',img='{$img}' where id={$id} ";
+
+//3. 构造修改指定ID数据的SQL语句
+$sql="update category set `title`='$name',sort_no=$sort_no,`content`='$content',is_show=$is_show where id=$id";
+
+
+
+$sql="insert into article(title,category_id,content,img) values('$title',$category_id,'$content','$filename')";
+
+
+/*
+         *strip_tags 去除字符串中的html 标签
+         * htmlspecialchars_decode 将html实体名称&lt；转换成html标签
+         * mb_substr 截取指定的字符串
+        */
+
+foreach ($rows as $v):
+            $d=strip_tags(htmlspecialchars_decode($v['content']));
+            ?>
+            <li>
+                <img src="images/pic2.jpg" alt=""/>
+                <h4><a href="content.php?id=<?=$v['id']?>"><?=$v['title']?></a></h4>
+                <p><?=mb_substr($d,0,100,'utf8');?></p>
+            </li>
+        <?php endforeach;?>
+
+//接收文章 ID数据
+$id=$_GET['id'];
+//读取文章数据5条
+$sql="select * from article where id=$id ";
+$rs=mysqli_query($link,$sql);
+$rows=mysqli_fetch_all($rs,MYSQLI_ASSOC);
+mysqli_free_result($rs);
+var_dump($rows);
+
+//1.接收信息
+extract($_POST);
+
+$database="blog";
+$sql="insert into admin values (null,'$name','$count')";
+myquery("blog",$sql);
+header("location:goods_list.php");
+
+function jump($message,$url){
+    echo "<h1>{$message}!</h1>";
+    header("Refresh:1;url={$url}");
+}
+
+$sql="update goods set name='{$name}',count ='{$count}' where id={$id}";
+
+  public static function dump($str){
+        //获取所有实际参数
+        $arr=func_get_args();
+        foreach($arr as $v){
+            var_dump($v);
+            echo ' ';
+        }
+        echo '<br/>';
+    }
+
+
+

@@ -1,0 +1,86 @@
+
+mysql 主从
+mysql master 服务器会把 sql 操作日志写入到 bin.log 日志里 slave 服务器会去读 master 的 bin.log 日志，然后执行 sql 语句。
+
+
+
+
+
+laravel composer安装心得：
+1、composer 安装     使用国内镜像安装不上composer config -g repo.packagistcomposer https://packagist.phpcomposer.com    缺少vendor
+
+2、使用国外镜像安装  composer config -g repo.packagist composer https://packagist.org
+  然后执行composer  install
+3、安装laravel      composer create-project --prefer-dist laravel/laravel blog04
+
+
+4、使用别人的项目或者从git上拉下的项目需要在项目目录中执行composer update 下载laravel依赖
+才能正确配置项目
+
+
+
+element移动端UI
+
+https://mint-ui.github.io/#!/zh-cn
+
+
+
+http://www.99meijutv.com/vod/zhenxiangdefudandierji/
+
+
+
+久草cms模板下载  苹果CMS下载
+
+
+
+https://pan.baidu.com/s/1-JRIadqvB0FA4WZ2VF5i5A
+
+
+VUE.js 项目搭建
+
+
+
+
+酷狗音乐海外听歌破解版
+https://pan.lanzou.com/iQy7r2f
+
+
+
+laravel  之图片上传存储 link 命令 php artisan storage:link
+
+
+laravel  前端图片显示  <td>@if($article->cover)<img class="img-circle" src="{{\Illuminate\Support\Facades\Storage::url($article->cover)}}"/>@endif</td>
+
+
+
+通常是缓存造成的
+
+在命令行中进入程序根目录，执行下列语句。
+
+php artisan cache:clear
+php artisan config:clear
+php artisan serve
+
+
+
+腾讯云服务器宝塔面板
+
+Bt-Panel: http://129.28.65.52:8888
+username: nv4lsalf
+password: 4a19c700
+
+公众测试号
+
+appID
+wxf979dbd760506920
+
+appsecret
+38119b5742b66fc4ed437125c79bed5d
+
+项目配置
+
+1. 全局安装Visio  2012
+
+2.npm  install 需要无报错安装node-sass   没安装完全删除node_modules文件夹重新安装
+
+3.全局安装gulp编译sass
